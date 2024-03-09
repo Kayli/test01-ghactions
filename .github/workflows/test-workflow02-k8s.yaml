@@ -31,7 +31,7 @@ jobs:
             
             - name: Build and push image to ACR
               run: |
-                docker build -t ${{ env.CONTAINER_NAME }}:${{ github.sha }} .
+                docker build -t ${{ env.CONTAINER_NAME }}:${{ github.sha }} -t ${{ env.CONTAINER_NAME }}:latest .
             - name: tag image
               run: docker tag ${{ env.CONTAINER_NAME }}:latest ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
             - name: publish image to acr
