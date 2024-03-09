@@ -1,0 +1,23 @@
+{
+  "name": "test01-ghactions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kayli/test01-ghactions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kayli/test01-ghactions/issues"
+  },
+  "homepage": "https://github.com/Kayli/test01-ghactions#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
