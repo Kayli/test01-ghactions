@@ -4,6 +4,7 @@ name: test-workflow02-k8s
         branches:
             - main
     workflow_dispatch: {}
+    pull_request:
 env:
     ACR_RESOURCE_GROUP: rg-akstest01
     AZURE_CONTAINER_REGISTRY: acrworkflow1709974034803
