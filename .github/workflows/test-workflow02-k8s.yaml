@@ -30,10 +30,11 @@ jobs:
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             
             - name: Build and push image to ACR
-              run: |
-                docker build -t ${{ env.CONTAINER_NAME }}:${{ github.sha }} -t ${{ env.CONTAINER_NAME }}:latest .
+              run: docker build -t ${{ env.CONTAINER_NAME }}:${{ github.sha }} -t ${{ env.CONTAINER_NAME }}:latest .
             - name: tag image
               run: docker tag ${{ env.CONTAINER_NAME }}:latest ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
+            - name: docker login 
+              run: docker login ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
             - name: publish image to acr
               run: docker image push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}
               #run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
