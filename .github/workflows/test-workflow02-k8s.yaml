@@ -36,12 +36,14 @@ jobs:
             - name: docker login 
               run: docker login ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
 
-            - name: publish image to acr
+            - name: acr login
             - uses: azure/docker-login@v1
               with:
                 login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
                 username: ${{ secrets.ACR_USERNAME }}
                 password: ${{ secrets.ACR_PASSWORD }}
+            
+            - name: publish image to acr
               run: docker image push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}
               #run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
 
