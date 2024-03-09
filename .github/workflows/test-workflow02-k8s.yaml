@@ -33,8 +33,8 @@ jobs:
               run: docker build -t ${{ env.CONTAINER_NAME }}:${{ github.sha }} -t ${{ env.CONTAINER_NAME }}:latest .
             - name: tag image
               run: docker tag ${{ env.CONTAINER_NAME }}:latest ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
-            - name: docker login 
-              run: docker login ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
+            #- name: docker login 
+            #  run: docker login ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
 
             - name: acr login
               uses: azure/docker-login@v1
