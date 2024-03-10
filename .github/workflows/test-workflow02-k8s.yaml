@@ -44,7 +44,7 @@ jobs:
                 password: ${{ secrets.ACR_PASSWORD }}
             
             - name: publish image to acr
-              run: docker image push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}
+              run: docker image push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
               #run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
 
     deploy:
@@ -78,6 +78,7 @@ jobs:
               name: Deploys application
               with:
                 action: deploy
-                images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+                #images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+                images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
                 namespace: namespace-workflow-1709974034803
