@@ -1,6 +1,4 @@
 FROM node:19 as build
-ENV PORT 3000
-EXPOSE 3000
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -12,8 +10,10 @@ COPY . .
 RUN npm install -g @angular/cli
 RUN ng build
 
+
 # use the latest version of the official nginx image as the base image
 FROM nginx:latest as prod
+EXPOSE 80
 
 # copy the custom nginx configuration file to the container in the 
 # default location
