@@ -1,5 +1,5 @@
 name: test-workflow02-k8s
-"on":
+on:
     push:
         branches:
             - main
