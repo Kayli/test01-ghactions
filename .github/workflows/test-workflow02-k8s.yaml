@@ -20,6 +20,7 @@ jobs:
             contents: read
             id-token: write
         runs-on: ubuntu-latest
+        environment: main
         steps:
             - uses: actions/checkout@v4
             - uses: azure/login@v2
@@ -51,6 +52,7 @@ jobs:
             contents: read
             id-token: write
         runs-on: ubuntu-latest
+        environment: main
         needs:
             - buildImage
         steps:
