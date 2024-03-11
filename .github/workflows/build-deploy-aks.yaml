@@ -1,4 +1,4 @@
-name: build-deploy-k8s
+name: build-deploy-aks
 on:
     push:
         branches:
