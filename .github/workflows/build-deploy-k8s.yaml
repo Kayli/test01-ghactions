@@ -1,4 +1,4 @@
-name: test-workflow02-k8s
+name: build-deploy-k8s
 on:
     push:
         branches:
