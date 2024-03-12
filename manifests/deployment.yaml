@@ -3,8 +3,6 @@ kind: Deployment
 
 metadata:
   name: test-workflow02-k8s
-  labels:
-    app: test-workflow02-k8s
   namespace: namespace-workflow-1709974034803
 
 spec:
