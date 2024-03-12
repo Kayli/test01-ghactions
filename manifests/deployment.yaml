@@ -6,6 +6,10 @@ metadata:
   namespace: namespace-workflow-1709974034803
 
 spec:
+  selector: # selector here seems redundant but required by apps/v1 standard
+    matchLabels:
+      app: test-workflow02-k8s 
+
   replicas: 1
     
   template: # pod template
