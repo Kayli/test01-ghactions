@@ -1,16 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: test-workflow02-k8s
   labels:
     app: test-workflow02-k8s
   namespace: namespace-workflow-1709974034803
+
 spec:
-  replicas: 1
-  selector:
+  selector: # selector here seems redundant but required by apps/v1 standard
     matchLabels:
-      app: test-workflow02-k8s
-  template:
+      app: test-workflow02-k8s 
+
+  replicas: 1
+    
+  template: # pod template
     metadata:
       labels:
         app: test-workflow02-k8s
