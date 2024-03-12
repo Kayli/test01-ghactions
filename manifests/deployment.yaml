@@ -11,7 +11,7 @@ spec:
       app: test-workflow02-k8s 
 
   replicas: 1
-    
+
   template: # pod template
     metadata:
       labels:
